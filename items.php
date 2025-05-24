@@ -18,13 +18,18 @@ foreach (new DirectoryIterator($_GET["path"]) as $fileInfo) {
         $data = json_decode(file_get_contents("$path/mod.json"),true);
         if (is_array($data)) { #cI1
             if (array_key_exists("Name",$data)) { #cI1
+                $action = "alert";
                 if (in_array($fileInfo->getFilename(),$extact)) {
                     $color = "green";
+                    $action = "deactivate";
                 } else {
                     $color = "red";
+                    $action = "activate";
                 }
-                $name = $data["Name"];
-                echo "<div class='bg-$color-800/25 w-24 h-24 m-4 text-center'>$name</div>";
+                $name = htmlentities($data["Name"]);
+                $id = $fileInfo->getFilename();
+                $extactdir = $_GET["extact"];
+                echo "<button id='$id' onclick='$action(\"$id\",\"$name\")' class='bg-$color-800/25 w-24 h-24 m-4 text-center rounded-xl'>$name</button>";
             }
         }
     }
