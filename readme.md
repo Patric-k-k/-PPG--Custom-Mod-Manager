@@ -1,4 +1,5 @@
 I hated the built in one too much-- mainly because it didn't have collections. Neither does this one, for now.
+### If you know how to develop mods, please develop a small one to go along with this mod manager and reload the mods when externalactives in the games install directory changes.
 ## Implemented
 - Keybind launched overlay, `SHIFT M` and `SHIFT ESC`.
 - Toggling Mods
